@@ -1,0 +1,22 @@
+name: Java Unit Tests
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Repoyu Klonla
+      uses: actions/checkout@v3
+    - name: JDK 17 Kurulumu
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+    - name: JUnit Kurulumu ve Testlerin Calistirilmasi
+      run: |
+        wget https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.9.2/junit-platform-console-standalone-1.9.2.jar
+        javac -cp junit-platform-console-standalone-1.9.2.jar *.java
+        java -jar junit-platform-console-standalone-1.9.2.jar -cp . --scan-class-path
