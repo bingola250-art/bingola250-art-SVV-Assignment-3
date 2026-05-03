@@ -26,7 +26,7 @@ public class UserValidatorTest {
     @Test // 6-10: Şifre Testleri (Boundary Value Analysis)
     void testPasswords() {
         assertTrue(validator.isValidPassword("Sifre1234")); // Geçerli
-        assertFalse(validator.isValidPassword("kisa1"));      // Çok kısa (BVA)
+        assertFalse(validator.isValidPassword("kisa123"));      // Çok kısa (BVA)
         assertFalse(validator.isValidPassword("SADECEHARF")); // Rakam yok
         assertFalse(validator.isValidPassword("sadece_kucuk_1")); // Büyük harf yok
         assertTrue(validator.doPasswordsMatch("Sifre1", "Sifre1"));
