@@ -22,4 +22,9 @@ public class UserValidator {
     public boolean doPasswordsMatch(String p1, String p2) {
         return p1 != null && p1.equals(p2);
     }
+    // Doğum Tarihi kontrolü (dd/mm/yyyy formatında)
+    public boolean isValidDateOfBirth(String dob) {
+        String dobRegex = "^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/(19|20)\\d\\d$";
+        return dob != null && dob.matches(dobRegex);
+    }
 }
