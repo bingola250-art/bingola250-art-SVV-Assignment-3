@@ -5,7 +5,14 @@ public class UserValidatorTest {
     UserValidator validator;
 
     @BeforeEach // Setup Method
-    void setUp() { validator = new UserValidator(); }
+    void setUp() { 
+        validator = new UserValidator(); 
+    }
+
+    @AfterEach // Teardown Method (Bunu yeni ekledik!)
+    void tearDown() {
+        validator = null; // Test bitince hafızayı temizliyoruz
+    }
 
     @Test // 1-5: İsim Testleri (Equivalence Partitioning)
     void testNames() {
