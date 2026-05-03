@@ -41,4 +41,12 @@ public class UserValidatorTest {
         assertFalse(validator.isValidEmail("ali@"));
         assertFalse(validator.isValidEmail(null));
     }
+    @Test // 17-21: Doğum Tarihi Testleri (BVA & EP)
+    void testDateOfBirth() {
+        assertTrue(validator.isValidDateOfBirth("15/05/2000")); // Geçerli format
+        assertFalse(validator.isValidDateOfBirth("32/05/2000")); // Sınır Değer (BVA) - 32. gün olamaz
+        assertFalse(validator.isValidDateOfBirth("15/13/2000")); // Sınır Değer (BVA) - 13. ay olamaz
+        assertFalse(validator.isValidDateOfBirth("15-05-2000")); // Yanlış format (EP) - tire kullanılmış
+        assertFalse(validator.isValidDateOfBirth(null));
+    }
 }
